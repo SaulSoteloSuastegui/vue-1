@@ -26,11 +26,12 @@
                 </div>
             
                 <div class="col-md-6 col-xs-12">
-                    <h1>Lista de Notas</h1>
+                    <h1 v-if="lista.length > 0">Lista de Notas</h1>
+                    <h1 v-else="lista">No existen Notas</h1>
                     <table class="table">
                         <tr><th>Nombre</th><th>Promedio</th></tr>
 
-                        <tr v-for="item in lista">
+                        <tr v-for="item in lista" v-bind:style="item.estado==false?'color:red':''">
                             <td v-text="item.nombre"></td>
                             <td v-text="item.promedio"></td>
                         </tr>
